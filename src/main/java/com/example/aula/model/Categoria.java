@@ -4,6 +4,7 @@ package com.example.aula.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
@@ -18,10 +19,6 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
-    String categoria;
-
-//    @ManyToMany(mappedBy = "categorias")
-//    List<Carro> carros;
+    String nome;
 
 }

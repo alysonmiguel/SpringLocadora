@@ -41,7 +41,6 @@ public class UsuarioController {
     @PostMapping
     public Usuario insert(@RequestBody Usuario usuario) {
             return usuarioService.saveAndFlush(usuario);
-//        return ResponseEntity.ok().build();
     }
 
     @PutMapping(path = {"/{id}"})

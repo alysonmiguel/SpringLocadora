@@ -37,14 +37,9 @@ public class CarroController {
         }
     }
 
-
     @PostMapping
     public Carro insert(@RequestBody Carro carro) {
-
         return service.saveAndFlush(carro);
-
-//        return ResponseEntity.status(201).build();
-//        return ResponseEntity.ok().build();
     }
 
     @PutMapping(path = {"/{id}"})

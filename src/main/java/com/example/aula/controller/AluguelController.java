@@ -37,14 +37,9 @@ public class AluguelController {
         }
     }
 
-
     @PostMapping
     public Aluguel insert(@RequestBody Aluguel aluguel) {
-
          return   aluguelService.saveAndFlush(aluguel);
-
-//        return ResponseEntity.status(201).build();
-//        return ResponseEntity.ok().build();
     }
 
     @PutMapping(path = {"/{id}"})

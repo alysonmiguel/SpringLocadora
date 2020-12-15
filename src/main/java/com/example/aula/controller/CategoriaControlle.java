@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public class CategoriaControlle {
     }
 
     @GetMapping
-    public List<Categoria> listAll () {
+    public  List<Categoria> listAll (HttpServletResponse response) {
         return service.findAll();
     }
 
@@ -41,11 +42,7 @@ public class CategoriaControlle {
 
     @PostMapping
     public Categoria insert(@RequestBody Categoria categoria) {
-
         return service.saveAndFlush(categoria);
-
-//        return ResponseEntity.status(201).build();
-//        return ResponseEntity.ok().build();
     }
 
     @PutMapping(path = {"/{id}"})

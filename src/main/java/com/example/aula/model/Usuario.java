@@ -37,18 +37,4 @@ public class Usuario {
     @JoinColumn(name = "endereco_id")
     Endereco endereco;
 
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "usuario_id")
-//    List<Aluguel> alugueis;
-
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "usuario_carro",
-//            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "carro_id")
-//    )
-//    List<Carro> carros;
-
-
 }

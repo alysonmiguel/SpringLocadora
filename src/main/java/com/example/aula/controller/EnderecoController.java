@@ -25,16 +25,10 @@ public class EnderecoController {
         return enderecoRepository.findAll();
     }
 
-
     @PostMapping
     public ResponseEntity<Endereco> insert(@RequestBody Endereco endereco) {
-
         enderecoRepository.saveAndFlush(endereco);
-
         return ResponseEntity.status(201).build();
-//        return ResponseEntity.ok().build();
     }
 
-
 }
-

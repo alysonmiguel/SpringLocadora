@@ -23,12 +23,7 @@ public class  Endereco {
 
     @Size(min = 8, max = 8, message = ApiMensagens.TAMANHO_ERRADO)
     String cep;
-
     String cidade;
-
     String rua;
-
-//    @OneToOne(mappedBy = "endereco", cascade = CascadeType.PERSIST)
-//    Usuario usuario;
 
 }

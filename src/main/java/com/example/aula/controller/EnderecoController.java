@@ -1,7 +1,6 @@
-package com.example.aula.controle;
+package com.example.aula.controller;
 
 import com.example.aula.model.Endereco;
-import com.example.aula.model.Usuario;
 import com.example.aula.repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

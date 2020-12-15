@@ -1,57 +1,55 @@
-package com.example.aula.controle;
+package com.example.aula.controller;
 
-import com.example.aula.model.Carro;
-import com.example.aula.service.CarroService;
+import com.example.aula.model.Categoria;
+import com.example.aula.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", exposedHeaders = "X-Total-Count")
-@RequestMapping("/carro")
-public class CarroController {
+@RequestMapping("/categoria")
+public class CategoriaControlle {
 
-    private CarroService service;
+    private CategoriaService service;
 
     @Autowired
-    public void setService(CarroService service) {
+    public void setService(CategoriaService service) {
         this.service = service;
     }
 
     @GetMapping
-    public List<Carro> listAll () {
+    public List<Categoria> listAll () {
         return service.findAll();
     }
 
     @GetMapping(path = {"/{id}"})
-    public ResponseEntity<Carro> getOne(@PathVariable Long id) {
-        Optional<Carro> carro = service.findyById(id);
-        if(carro.isEmpty()){
+    public ResponseEntity<Categoria> getOne(@PathVariable Long id) {
+        Optional<Categoria> categoria = service.findyById(id);
+        if(categoria.isEmpty()){
             return ResponseEntity.notFound().build();
         }else {
-            Carro record =  carro.get();
+            Categoria record =  categoria.get();
             return ResponseEntity.ok().body(record);
         }
     }
 
 
     @PostMapping
-    public ResponseEntity<Carro> insert(@RequestBody Carro carro) {
+    public Categoria insert(@RequestBody Categoria categoria) {
 
-        service.saveAndFlush(carro);
+        return service.saveAndFlush(categoria);
 
-        return ResponseEntity.status(201).build();
+//        return ResponseEntity.status(201).build();
 //        return ResponseEntity.ok().build();
     }
 
     @PutMapping(path = {"/{id}"})
-    public ResponseEntity<Carro> update(@PathVariable Long id, @RequestBody Carro c) {
+    public ResponseEntity<Categoria> update(@PathVariable Long id, @RequestBody Categoria c) {
         return service.findyById(id).map( record -> {
             service.saveAndFlush(c);
             return ResponseEntity.ok().body(c);
@@ -65,5 +63,7 @@ public class CarroController {
             return ResponseEntity.ok().build();
         }).orElse(ResponseEntity.notFound().build());
     }
+
+
 
 }

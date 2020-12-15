@@ -33,23 +33,22 @@ public class Usuario {
 
     String telefone;
 
-    Boolean tipo;
-
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     Endereco endereco;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-    List<Aluguel> alugueis;
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "usuario_id")
+//    List<Aluguel> alugueis;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "usuario_carro",
-            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "carro_id")
-    )
-    List<Carro> carros;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "usuario_carro",
+//            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "carro_id")
+//    )
+//    List<Carro> carros;
 
 
 }

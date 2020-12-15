@@ -1,6 +1,5 @@
 package com.example.aula;
 
-import com.example.aula.model.Usuario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,14 +8,6 @@ public class AulaApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AulaApplication.class, args);
-
-
-        Usuario u = new Usuario();
-
-
-
-
-
     }
 
 }

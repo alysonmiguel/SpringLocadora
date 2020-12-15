@@ -1,28 +1,27 @@
 package com.example.aula.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.*;
-import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-public class Aluguel {
+public class Categoria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String dataAluguel;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "usuario_id")
-    Usuario usuario;
+    String categoria;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "carro_id")
-    Carro carro;
+//    @ManyToMany(mappedBy = "categorias")
+//    List<Carro> carros;
 
 }

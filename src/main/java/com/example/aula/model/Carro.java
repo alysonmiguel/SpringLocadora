@@ -38,9 +38,18 @@ public class Carro {
     @NotNull(message = ApiMensagens.CAMPO_VAZIO)
     Integer qtdLugares;
 
+//
+//    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "carro_id")
+//    List<Aluguel> aluguel;
 
-    @OneToMany(mappedBy = "carro", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-    List<Aluguel> aluguel;
+    @ManyToMany()
+    @JoinTable(
+            name = "carro_categoria",
+            joinColumns = @JoinColumn(name = "carro_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
+    List<Categoria> categorias;
 
 
 }

@@ -1,4 +1,4 @@
-package com.example.aula.controle;
+package com.example.aula.controller;
 
 import com.example.aula.model.Usuario;
 import com.example.aula.service.UsuarioService;
@@ -39,11 +39,8 @@ public class UsuarioController {
 
 
     @PostMapping
-    public ResponseEntity<Usuario> insert(@RequestBody Usuario usuario) {
-
-        usuarioService.saveAndFlush(usuario);
-
-        return ResponseEntity.status(201).build();
+    public Usuario insert(@RequestBody Usuario usuario) {
+            return usuarioService.saveAndFlush(usuario);
 //        return ResponseEntity.ok().build();
     }
 

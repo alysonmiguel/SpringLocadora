@@ -28,7 +28,7 @@ public class  Endereco {
 
     String rua;
 
-    @OneToOne(mappedBy = "endereco", cascade = CascadeType.PERSIST)
-    Usuario usuario;
+//    @OneToOne(mappedBy = "endereco", cascade = CascadeType.PERSIST)
+//    Usuario usuario;
 
 }

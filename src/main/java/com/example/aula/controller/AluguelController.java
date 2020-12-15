@@ -1,10 +1,7 @@
-package com.example.aula.controle;
+package com.example.aula.controller;
 
 import com.example.aula.model.Aluguel;
-import com.example.aula.model.Usuario;
-import com.example.aula.repository.AluguelRepository;
 import com.example.aula.service.AluguelService;
-import com.example.aula.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,11 +39,11 @@ public class AluguelController {
 
 
     @PostMapping
-    public ResponseEntity<Aluguel> insert(@RequestBody Aluguel aluguel) {
+    public Aluguel insert(@RequestBody Aluguel aluguel) {
 
-        aluguelService.saveAndFlush(aluguel);
+         return   aluguelService.saveAndFlush(aluguel);
 
-        return ResponseEntity.status(201).build();
+//        return ResponseEntity.status(201).build();
 //        return ResponseEntity.ok().build();
     }
 
